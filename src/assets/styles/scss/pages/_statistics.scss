@@ -1,0 +1,13 @@
+.statistic-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: whitesmoke;
+    }
+}
