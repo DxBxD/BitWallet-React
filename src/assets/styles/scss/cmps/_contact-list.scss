@@ -1,9 +1,12 @@
 .contact-list {
     margin-block-start: 10px;
-    display: grid; /* Change this to grid */
-    grid-template-columns: repeat(3, 1fr); /* For a 3x3 grid */
-    grid-gap: 15px; /* Spacing between the grid items */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 }

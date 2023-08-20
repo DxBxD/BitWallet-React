@@ -17,3 +17,13 @@
         scale: 1.05;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .app-header {
+        padding: 8px;
+    }
+
+    .link {
+        font-size: 0.8em;
+    }
+}

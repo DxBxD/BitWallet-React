@@ -21,17 +21,17 @@
 }
 
 .contact-preview .contact-text-container {
-    flex-grow: 1; /* Take up the available width */
-    display: flex; /* Make this a flex container */
-    align-items: center; /* Center the text vertically */
-    overflow: hidden; /* Required for the ellipsis to work */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 }
 
 .contact-preview .contact-name {
     font-weight: 500;
     text-transform: none;
     overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis when content overflows */
-    white-space: nowrap; /* Ensure content doesn't wrap to the next line */
-    margin: 0; /* Remove any default margin */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
 }

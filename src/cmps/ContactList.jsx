@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ContactPreview } from "./ContactPreview";
+import React from "react"
+import { Link } from "react-router-dom"
+import { ContactPreview } from "./ContactPreview"
 
 export function ContactList({ contacts, onSelectContactId }) {
     return (

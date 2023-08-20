@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 import { userService } from '../services/user.service.js'
 import { bitcoinService } from '../services/bitcoin.service.js'
+
+import { MovesList } from '../cmps/MovesList.jsx'
 
 export function HomePage() {
     const [user, setUser] = useState(null)
@@ -10,7 +12,7 @@ export function HomePage() {
     useEffect(() => {
         async function loadData() {
             try {
-                const loadedUser = await userService.getUser()
+                const loadedUser = await userService.getLoggedinUser()
                 setUser(loadedUser)
 
                 if (loadedUser) {
@@ -25,14 +27,15 @@ export function HomePage() {
         loadData()
     }, [])
 
-    if (!user || !rate) return <div>Loading...</div>
+    if (!user || !rate) return <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     return (
         <>
             <section className="home-page">
-                <h2>Username: </h2><h4>{user.name}</h4>
-                <h2>Coins: </h2><h4>₿{user.coins}</h4>
-                <h2>Current Rate: </h2><h4>{rate}</h4>
+                <h2>Welcome, </h2><h4>{user.name}</h4>
+                <h2>Coins: </h2><h4>{user.coins}</h4>
+                <h2>BTC Rate: </h2><h4><span>₿</span> {rate}</h4>
             </section>
+            <MovesList contactId={null} title="Last Moves" />
         </>
     )
 }

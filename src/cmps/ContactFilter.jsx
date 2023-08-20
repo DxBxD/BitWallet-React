@@ -17,11 +17,11 @@ export function ContactFilter(props) {
             case 'number':
             case 'range':
                 value = (+value || '')
-                break;
+                break
             case 'checkbox':
                 value = target.checked
             default:
-                break;
+                break
         }
 
         setFilterBy(prevFilterBy => ({

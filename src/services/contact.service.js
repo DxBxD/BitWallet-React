@@ -6,9 +6,9 @@ export const contactService = {
     getEmptyContact
 }
 
+const LOCAL_STORAGE_KEY = 'contacts'
 
-
-const contacts = [
+let contacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [
     {
         "_id": "5a56640269f443a5d64b32ca",
         "name": "Ochoa Hyde",
@@ -124,18 +124,21 @@ const contacts = [
         "email": "lillyconner@renovize.com",
         "phone": "+1 (842) 587-3812"
     }
-];
+]
+
+function saveToLocalStorage() {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
+}
 
 function sort(arr) {
     return arr.sort((a, b) => {
         if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
-            return -1;
+            return -1
         }
         if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
-            return 1;
+            return 1
         }
-
-        return 0;
+        return 0
     })
 }
 
@@ -162,7 +165,7 @@ function deleteContact(id) {
         if (index !== -1) {
             contacts.splice(index, 1)
         }
-
+        saveToLocalStorage()
         resolve(contacts)
     })
 }
@@ -173,6 +176,7 @@ function _updateContact(contact) {
         if (index !== -1) {
             contacts[index] = contact
         }
+        saveToLocalStorage()
         resolve(contact)
     })
 }
@@ -181,6 +185,7 @@ function _addContact(contact) {
     return new Promise((resolve, reject) => {
         contact._id = _makeId()
         contacts.push(contact)
+        saveToLocalStorage()
         resolve(contact)
     })
 }
@@ -205,8 +210,6 @@ function filter(term) {
             contact.email.toLocaleLowerCase().includes(term)
     })
 }
-
-
 
 function _makeId(length = 10) {
     var txt = ''

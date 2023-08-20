@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { bitcoinService } from '../services/bitcoin.service';
-import { utilService } from '../services/util.service';
-import { Chart } from '../cmps/Chart';
+import React, { useEffect, useState } from 'react'
+import { bitcoinService } from '../services/bitcoin.service'
+import { utilService } from '../services/util.service'
+import { Chart } from '../cmps/Chart'
 
 export function StatisticsPage() {
     const [tradeVolume, setTradeVolume] = useState([])
@@ -56,7 +56,7 @@ export function StatisticsPage() {
                 dataKey="value"
                 description="Market Price over 5 months"
                 color="gold"
-                valueFormatter={(val) => `$${val.toFixed(2)}`}
+                valueFormatter={(val) => `$${parseFloat(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
             />
 
         </div>

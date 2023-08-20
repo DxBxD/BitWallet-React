@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 
 export function AppHeader() {
     return (
@@ -15,9 +15,6 @@ export function AppHeader() {
                 </NavLink>
                 <NavLink to="/statistics" className="link" activeClassName="active">
                     Statistics
-                </NavLink>
-                <NavLink to="/about" className="link" activeClassName="active">
-                    About
                 </NavLink>
             </nav>
         </header>
